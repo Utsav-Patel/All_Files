@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Key Detection</title>
+  <script type="text/javascript" src="http://www.cornify.com/js/cornify.js">
+  </script>
+</head>
+<body>
+<script>
+const position = [];
+  	const secret = `rrrr`;
+  	window.addEventListener('keydown',(e) => {
+  		console.log(e.key);
+  		position.push(e.key);
+  		console.log(position);
+  		if(position.join(``).includes(secret))
+  			console.log(`Hello`);
+  		position.splice(-secret.length-1,(position.length-secret.length)+1);
+  	});
+</script>
+</body>
+</html>

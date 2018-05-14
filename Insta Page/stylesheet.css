@@ -1,0 +1,10 @@
+img {
+	/*width:100px;
+	height:100px;*/
+}
+
+table, td {
+	border: 5px #70b8ff dashed;
+	width: 25%;
+	height: 25%;
+}

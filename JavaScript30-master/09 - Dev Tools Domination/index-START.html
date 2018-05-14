@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Console Tricks!</title>
+</head>
+<body>
+
+  <p onClick="makeGreen()">×BREAK×DOWN×</p>
+  <h1>
+  </h1>
+  <script>
+    const dogs = [{ name: 'Snickers', age: 2 }, { name: 'hugo', age: 8 }];
+
+    function makeGreen() {
+      const p = document.querySelector('p');
+      p.style.color = '#BADA55';
+      p.style.fontSize = '50px';
+    }
+
+    // Regular
+
+    console.log('Hello');
+
+    // Interpolated
+    var name = 'Utsav';
+    console.log(`Hello I am a ${name}`);
+
+    // Styled
+
+    console.log(`%c Hello guys`,`font-size: 50px; background: red; text-shadow: 10px 10px 0 blue`);
+
+    // warning!
+
+    console.warn('OHHHHHH NOOOO');
+    // Error :|
+
+    console.error('Null pointer Exception');
+    // Info
+
+    console.info('Information');
+
+    // Testing
+
+    console.assert(`00`,`This is always wrong`);
+    // clearing
+
+    const p = document.querySelector('p');
+    console.log(p);
+    console.log([1,2,3]);
+    console.dir([1,2,3]);
+
+    // Viewing DOM Elements
+
+    // Grouping together
+
+    dogs.forEach(dog => {
+      console.groupCollapsed(`${dog.name}`);
+      console.log(`My dog name is ${dog.name}`);
+      console.log(`${dog.name} is ${dog.age} year old`);
+      console.groupEnd(`${dog.name}`);
+    })
+
+    // counting
+
+    console.count(`HHH`);
+    console.count(`HHH`);
+    console.count(`HHH`);
+    console.count(`HHH`);
+    console.count(`HHH`);
+
+    console.time(`Fetching Data`);
+    const endpoint = 'https://gist.githubusercontent.com/Miserlou/c5cd8364bf9b2420bb29/raw/2bf258763cdddd704f8ffd3ea9a3e81d25e2c6f6/cities.json';
+
+    fetch(endpoint).then(i => i.json()).then(j => {
+      console.timeEnd(`Fetching Data`);
+      console.log(j);
+    })
+    // timing
+
+  </script>
+</body>
+</html>
