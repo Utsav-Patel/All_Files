@@ -23,6 +23,13 @@ body {
   transition: transform 0.5s;
 }
 
+.fix nav {
+  position: fixed;
+}
+.fix li.logo{
+  max-width: 500px;
+}
+
 header {
   text-align: center;
   height:50vh;
@@ -67,7 +74,7 @@ li.logo {
   max-width:0;
   overflow: hidden;
   background: white;
-  transition: all .5s;
+  transition: all 5s;
   font-weight: 600;
   font-size: 30px;
 }

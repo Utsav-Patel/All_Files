@@ -55,6 +55,24 @@
 
 <script>
 
+  const nav = document.querySelector(`#main`);
+  const ntop = nav.offsetHeight;
+  const hi = nav.offsetTop;
+
+  function fun(e){
+    console.log(ntop, nav.offsetTop, window.scrollY);
+    if(window.scrollY>=hi){
+      document.body.classList.add(`fix`);
+      document.body.style.paddingTop = ntop + 'px';
+    }
+    else{
+      document.body.classList.remove(`fix`);
+      document.body.style.paddingTop = '0px';
+    }
+    console.log(document.body.style.paddingTop);
+  }
+  window.addEventListener(`scroll`,fun);
+
 </script>
 
 </body>

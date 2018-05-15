@@ -182,6 +182,28 @@
     </li>
   </ul>
 <script>
+  const timeNodes = [...document.querySelectorAll(`[data-time]`)];
+  //console.log(timeNodes);
+
+  var totalSeconds = timeNodes.map(node => {
+    //console.log(node.dataset.time);
+    return node.dataset.time})
+    .map(node => {
+    //console.log(node);
+    var [mins, seconds] = node.split(':');
+    mins = parseFloat(mins);
+    seconds = parseFloat(seconds);
+
+    return mins*60 + seconds;
+  }).reduce((total,variable) => total + variable);
+
+    const hours = Math.floor(totalSeconds/3600);
+    totalSeconds = totalSeconds%3600;
+
+    const minutes = Math.floor(totalSeconds/60);
+    totalSeconds = totalSeconds%60;
+
+    console.log(`${hours}:${minutes}:${totalSeconds}`);
 </script>
 </body>
 </html>

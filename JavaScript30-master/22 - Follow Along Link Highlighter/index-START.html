@@ -27,6 +27,30 @@
 
   <script>
     // 👀👀👀👀👀👀👀👀👀👀👀👀👀👀👀
+
+    const triggers = document.querySelectorAll('a');
+    const highlighters =document.createElement('span');
+    highlighters.classList.add('highlight');
+    document.body.append(highlighters);
+
+    function highlightlink(e){
+      console.log(e);
+      console.log(this);
+      const info = this.getBoundingClientRect();
+      console.log(info);
+      const tmp = {
+        width: info.width,
+        height: info.height,
+        top: info.top + window.scrollY,
+        left: info.left + window.scrollX
+      };
+
+      highlighters.style.width = `${tmp.width}px`;
+      highlighters.style.height = `${tmp.height}px`;
+      highlighters.style.transform = `translate(${tmp.left}px,${tmp.top}px)`;
+    }
+
+    triggers.forEach(trigger => trigger.addEventListener('mousemove',highlightlink));
   </script>
 </body>
 </html>
