@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link type="text/css" rel="stylesheet" href="isPalindrome.css"/>
+		<title></title>
+
+	</head>
+	<body>
+		<div class="flex">
+			<div class="flex1" style="color:yellow; font-family:cursive"> Enter the String </div>
+			<div class="flex1"><input id="inp" type="text"></input></div>
+			<div class="flex1"><button type="button" id="but">Check String</button></div>
+			<div class="flex1"><div id="print" >Enter the String</div></div>
+		</div>
+	</body>
+	<script>
+		function printFinalAnswer(p){
+			document.querySelector(`#print`).textContent = p;
+		}
+
+		function extractString(){
+			return document.querySelector(`#inp`).value;
+		}
+
+		function clearValue(){
+			document.querySelector(`#inp`).value = ``;
+		}
+
+		function isPalindrome1(){                   // Using Own logic. I don't use any inbuilt functionality.
+			var str = extractString();
+			var len = str.length>>1;
+			var is = true;
+			for(let i=0;i<len;i++){
+				if(str[i]!=str[str.length-1-i])
+					is = false;
+			}
+			if(is)
+				printFinalAnswer(`${str} is Palindrome`);
+			else
+				printFinalAnswer(`${str} is not Palindrome`);
+			clearValue();
+		}
+
+		function isPalindrome2(){                     //  Using inbuilt functionality.
+			var str = extractString();
+			if(!str.localeCompare(str.split("").reverse().join("")))
+				printFinalAnswer(`${str} is Palindrome`);
+			else
+				printFinalAnswer(`${str} is not Palindrome`);
+			clearValue();
+		}
+
+		function isEnterKey(e){
+			if(e.key==`Enter`){
+				isPalindrome1();
+			}
+		}
+		document.querySelector(`#but`).addEventListener(`click`,isPalindrome2);
+		document.querySelector(`#inp`).addEventListener(`keydown`,isEnterKey);
+	</script>
+</html>

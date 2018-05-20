@@ -1,0 +1,43 @@
+html {
+      box-sizing: border-box;
+      background:#ffc600;
+      font-family:'helvetica neue';
+      font-size: 20px;
+      font-weight: 200;
+}
+body{
+	margin: 0;
+	background-image: url("https://www.setaswall.com/wp-content/uploads/2017/03/Dark-Night-Wallpaper-2880x1800.jpg");
+}
+.flex{
+	min-height: 100vh;
+	font-size: 200%;
+	display: flex;
+	flex-direction: column;
+    justify-content: center;
+  	align-items: center;
+}
+.flex1{
+    justify-content: center;
+  	align-items: center;
+  	color: hsl(9, 100%, 64%);
+	display: flex;
+	flex: 1;
+}
+.flex1 #inp{
+	color: blue;
+	font-size: 100%;
+}
+#but{
+	color: blue;
+	font-size: 50%;
+}
+#print{
+	font-size: 100%;
+    justify-content: center;
+  	align-items: center;
+	display: block;
+	width: 800px;
+	text-align: center;
+	word-wrap: break-word;
+}

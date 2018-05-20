@@ -1,0 +1,15 @@
+<html>
+<body>
+	<a href="http://www.google.com"> Google </a>
+	<script>
+
+	document.querySelector(`a`).addEventListener(`click`,(e) => {
+		console.log(`I am not Google. April Full`);
+		e.preventDefault(); // Using this method, we can prevent the execution of the default handler.
+	});
+
+	// Here, I prevent the default behaviour of the a tag.
+
+	</script>
+</body>
+</html>

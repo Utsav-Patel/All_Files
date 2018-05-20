@@ -1,0 +1,22 @@
+<html>
+<body>
+	<p> Hello <button> button </button> </p>
+	<script>
+		function fun1(){
+			console.log("First");
+		}
+
+		function fun2(e){
+			console.log("Second");
+			if(e.button==2) // button values: 0 => left key, 1 => middle key, 2 => right key.
+				e.stopPropagation();
+		}
+		var par = document.querySelector(`p`);
+		par.addEventListener(`click`,fun1);
+
+		var bun = document.querySelector(`button`);
+		bun.addEventListener(`click`,fun2);
+
+	</script>
+</body>
+</html>

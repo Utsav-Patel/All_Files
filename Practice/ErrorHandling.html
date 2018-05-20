@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>
+			Error Handling!!
+		</title>
+	</head>
+	<body>
+		<p> Enter the number between 5 to 10 </p>
+		<input id="my" type="text"> Me </input>
+		<button type="button" id="but"> Test </button>
+		<h1 id="print"></h1>
+	</body>
+	<script>
+		function OnClick(){
+			var x = document.getElementById(`my`).value;
+			var message = document.getElementById(`print`);
+			console.log(x);
+
+			// try: if error occured, it will catch by the "catch(err)" where err defined the type of the error
+			// or it contains the statement send by the throw statement.
+
+			// whenever the error catch by the try, immediately execution move to the catch. All the remaining part will not be executed. Then catch statement start execution.
+
+			// finally(): This part execute regularly irrespetive of the try and catch statemnet. So, why do we need it?? 
+			// Answer: Suppose try call another function and the error is caught by that function so execution call immediately move to the catch statement. But system stack contain that function. So, "finally" remove all the instances of the try statement.
+			try{
+				if(x==``) throw `Empty`;
+				else if(isNaN(x)) throw `Not a number`;
+				else if(x<5) throw `Too Low`;
+				else if(x>10) throw `Too High`;
+				else message.innerHTML = `Perfect`;
+			}
+			catch (err){
+				message.innerHTML = `Error ` + err;
+				console.error(message.innerHTML);
+			}
+			finally {
+				document.getElementById(`my`).value = ``;
+			}
+		}
+		document.querySelector(`#but`).addEventListener(`click`,OnClick);
+	</script>
+</html>
